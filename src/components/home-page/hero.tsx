@@ -11,7 +11,7 @@ export default function Hero({ scrollToSection, aboutRef }: HeroProps) {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: "url('/images/home_hero.png')",
+          backgroundImage: "url('/images/home_hero.jpg')",
           filter: "brightness(0.35)",
         }}
       ></div>

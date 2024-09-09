@@ -1,6 +1,5 @@
 // components/Research.tsx
 import { RefObject } from "react";
-import Image from "next/image";
 
 interface ResearchProps {
   researchRef: RefObject<HTMLDivElement>;
@@ -20,14 +19,22 @@ export default function Research({ researchRef }: ResearchProps) {
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-            <Image
+            <img
               alt="Computational Modeling"
               className="w-full h-48 object-cover"
-              src="/images/computational_modelling.png"
-              width={300}
-              height={200}
+              src="/images/computational_modelling.jpg"
+              width="300"
+              height="200"
               style={{ objectFit: "cover" }}
             />
+            {/* <Image */}
+            {/*   alt="Computational Modeling" */}
+            {/*   className="w-full h-48 object-cover" */}
+            {/*   src="/images/computational_modelling.jpg" */}
+            {/*   width={300} */}
+            {/*   height={200} */}
+            {/*   style={{ objectFit: "cover" }} */}
+            {/* /> */}
             <div className="p-6">
               <div className="w-12 h-12 bg-teal-500 rounded-lg flex items-center justify-center mb-4">
                 <svg
@@ -56,12 +63,12 @@ export default function Research({ researchRef }: ResearchProps) {
             </div>
           </div>
           <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-            <Image
+            <img
               alt="Data Analytics"
               className="w-full h-48 object-cover"
-              src="/images/data_analytics.png"
-              width={300}
-              height={200}
+              src="/images/data_analytics.jpg"
+              width="300"
+              height="200"
               style={{ objectFit: "cover" }}
             />
             <div className="p-6">
@@ -90,14 +97,23 @@ export default function Research({ researchRef }: ResearchProps) {
             </div>
           </div>
           <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-            <Image
+            <img
               alt="Machine Learning"
               className="w-full h-48 object-cover"
-              src="/images/machine_learning.png"
-              width={300}
-              height={200}
+              src="/images/machine_learning.jpg"
+              width="300"
+              height="200"
               style={{ objectFit: "cover" }}
             />
+
+            {/* <Image */}
+            {/*   alt="Machine Learning" */}
+            {/*   className="w-full h-48 object-cover" */}
+            {/*   src="/images/machine_learning.jpg" */}
+            {/*   width={300} */}
+            {/*   height={200} */}
+            {/*   style={{ objectFit: "cover" }} */}
+            {/* /> */}
             <div className="p-6">
               <div className="w-12 h-12 bg-teal-500 rounded-lg flex items-center justify-center mb-4">
                 <svg
