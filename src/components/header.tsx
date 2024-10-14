@@ -1,5 +1,5 @@
 import Link from "next/link";
-// import Image from "next/image";
+import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
@@ -85,21 +85,13 @@ export default function Header({
       >
         <Link href="/" className="flex items-center space-x-2 -m-1.5 p-1.5">
           <span className="sr-only">CEID</span>
-          {/* <Image */}
-          {/*   src="/images/logo.png" */}
-          {/*   alt="Logo" */}
-          {/*   width={40} // Adjust the width as needed */}
-          {/*   height={40} // Adjust the height as needed */}
-          {/*   className="h-8 w-auto" */}
-          {/* /> */}
-          <img
+          <Image
             src="/images/logo.png"
             alt="Logo"
-            width="40"
-            height="40"
+            width={40} // Adjust the width as needed
+            height={40} // Adjust the height as needed
             className="h-8 w-auto"
           />
-
           <span className="text-xl font-bold text-white">CEID</span>
         </Link>
 
@@ -204,20 +196,13 @@ export default function Header({
             <div className="flex items-center justify-between">
               <Link href="/" className="-m-1.5 p-1.5">
                 <span className="sr-only">CEID</span>
-                <img
+                <Image
                   src="/images/logo.png"
                   alt="Logo"
-                  width="40"
-                  height="40"
+                  width={40} // Adjust the width as needed
+                  height={40} // Adjust the height as needed
                   className="h-8 w-auto"
                 />
-                {/* <Image */}
-                {/*   src="/images/logo.png" */}
-                {/*   alt="Logo" */}
-                {/*   width={40} // Adjust the width as needed */}
-                {/*   height={40} // Adjust the height as needed */}
-                {/*   className="h-8 w-auto" */}
-                {/* /> */}
               </Link>
               <button
                 type="button"

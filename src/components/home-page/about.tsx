@@ -1,4 +1,5 @@
 // components/About.tsx
+import Image from "next/image";
 import { RefObject } from "react";
 
 interface AboutProps {
@@ -16,22 +17,14 @@ export default function About({ aboutRef }: AboutProps) {
         <h2 className="text-3xl font-bold mb-8">About Our Center</h2>
         <div className="flex flex-col md:flex-row gap-8">
           <div className="md:w-1/2">
-            <img
+            <Image
               alt="Scientist working in a lab"
               className="rounded-lg object-cover w-full h-auto"
               src="/images/about.jpg"
-              width="600"
-              height="400"
+              width={600}
+              height={400}
               style={{ objectFit: "cover" }}
             />
-            {/* <Image */}
-            {/*   alt="Scientist working in a lab" */}
-            {/*   className="rounded-lg object-cover w-full h-auto" */}
-            {/*   src="/images/about.jpg" */}
-            {/*   width={600} */}
-            {/*   height={400} */}
-            {/*   style={{ objectFit: "cover" }} */}
-            {/* /> */}
           </div>
           <div className="md:w-1/2">
             <h3 className="text-2xl font-semibold mb-4 text-teal-600">
