@@ -8,7 +8,7 @@ import Hero from "./home-page/hero";
 import About from "./home-page/about";
 import Research from "./home-page/research";
 import FeaturedPublications from "./home-page/featured-publications";
-// import Contact from "./home-page/contact";
+import Contact from "./home-page/contact";
 
 export function HomePage() {
   const aboutRef = useRef<HTMLDivElement>(null);
@@ -49,7 +49,7 @@ export function HomePage() {
         <About aboutRef={aboutRef} />
         <Research researchRef={researchRef} />
         <FeaturedPublications publicationsRef={publicationsRef} />
-        {/* <Contact contactRef={contactRef} /> */}
+        <Contact contactRef={contactRef} />
       </main>
       <Footer />
     </div>
