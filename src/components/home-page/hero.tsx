@@ -1,8 +1,8 @@
 // components/Hero.tsx
 
 interface HeroProps {
-  scrollToSection: (ref: React.RefObject<HTMLDivElement>) => void;
-  aboutRef: React.RefObject<HTMLDivElement>;
+  scrollToSection: (ref: React.RefObject<HTMLDivElement | null>) => void;
+  aboutRef: React.RefObject<HTMLDivElement | null>;
 }
 
 export default function Hero({ scrollToSection, aboutRef }: HeroProps) {

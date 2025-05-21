@@ -5,14 +5,14 @@ import { useRouter } from "next/navigation";
 
 interface HeaderProps {
   scrollToSection?: (
-    ref: React.RefObject<HTMLDivElement>,
+    ref: React.RefObject<HTMLDivElement | null>,
     isMobile: boolean,
   ) => void;
-  topRef?: React.RefObject<HTMLDivElement>;
-  aboutRef?: React.RefObject<HTMLDivElement>;
-  researchRef?: React.RefObject<HTMLDivElement>;
-  publicationsRef?: React.RefObject<HTMLDivElement>;
-  contactRef?: React.RefObject<HTMLDivElement>;
+  topRef?: React.RefObject<HTMLDivElement | null>;
+  aboutRef?: React.RefObject<HTMLDivElement | null>;
+  researchRef?: React.RefObject<HTMLDivElement | null>;
+  publicationsRef?: React.RefObject<HTMLDivElement | null>;
+  contactRef?: React.RefObject<HTMLDivElement | null>;
 }
 
 export default function Header({
@@ -43,7 +43,7 @@ export default function Header({
   };
 
   const handleNavigation = (
-    ref: React.RefObject<HTMLDivElement> | null | undefined,
+    ref: React.RefObject<HTMLDivElement | null> | null | undefined,
     path: string,
     isMobile = false,
   ) => {

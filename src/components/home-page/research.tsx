@@ -3,7 +3,7 @@ import { RefObject } from "react";
 import Image from "next/image";
 
 interface ResearchProps {
-  researchRef: RefObject<HTMLDivElement>;
+  researchRef: RefObject<HTMLDivElement | null>;
 }
 
 export default function Research({ researchRef }: ResearchProps) {

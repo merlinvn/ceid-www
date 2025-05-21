@@ -3,7 +3,7 @@ import Image from "next/image";
 import { RefObject } from "react";
 
 interface AboutProps {
-  aboutRef: RefObject<HTMLDivElement>;
+  aboutRef: RefObject<HTMLDivElement | null>;
 }
 
 export default function About({ aboutRef }: AboutProps) {

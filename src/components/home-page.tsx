@@ -18,7 +18,7 @@ export function HomePage() {
   const topRef = useRef<HTMLDivElement>(null);
 
   const scrollToSection = (
-    ref: React.RefObject<HTMLDivElement>,
+    ref: React.RefObject<HTMLDivElement | null>,
     isMobile = false,
   ) => {
     const headerHeight = isMobile

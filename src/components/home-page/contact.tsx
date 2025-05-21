@@ -2,7 +2,7 @@
 import { RefObject } from "react";
 
 interface ContactProps {
-  contactRef: RefObject<HTMLDivElement>;
+  contactRef: RefObject<HTMLDivElement | null>;
 }
 
 export default function Contact({ contactRef }: ContactProps) {

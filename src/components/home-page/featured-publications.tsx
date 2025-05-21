@@ -2,7 +2,7 @@ import { RefObject } from "react";
 import Link from "next/link";
 
 interface PublicationsProps {
-  publicationsRef: RefObject<HTMLDivElement>;
+  publicationsRef: RefObject<HTMLDivElement | null>;
 }
 
 interface Publication {
