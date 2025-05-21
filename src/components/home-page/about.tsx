@@ -1,5 +1,4 @@
 // components/About.tsx
-import Image from "next/image";
 import { RefObject, useRef, useState } from "react";
 import { FaPlay, FaPause, FaExpand } from "react-icons/fa";
 
@@ -83,10 +82,10 @@ function VideoPlayer() {
     if (!video) return;
     if (video.requestFullscreen) {
       video.requestFullscreen();
-    } else if ((video as any).webkitRequestFullscreen) {
-      (video as any).webkitRequestFullscreen();
-    } else if ((video as any).msRequestFullscreen) {
-      (video as any).msRequestFullscreen();
+    } else if ('webkitRequestFullscreen' in video) {
+      (video as HTMLVideoElement & { webkitRequestFullscreen?: () => void }).webkitRequestFullscreen?.();
+    } else if ('msRequestFullscreen' in video) {
+      (video as HTMLVideoElement & { msRequestFullscreen?: () => void }).msRequestFullscreen?.();
     }
   };
 
