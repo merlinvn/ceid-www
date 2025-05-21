@@ -1,6 +1,7 @@
 // components/About.tsx
 import Image from "next/image";
-import { RefObject } from "react";
+import { RefObject, useRef, useState } from "react";
+import { FaPlay, FaPause, FaExpand } from "react-icons/fa";
 
 interface AboutProps {
   aboutRef: RefObject<HTMLDivElement | null>;
@@ -17,14 +18,8 @@ export default function About({ aboutRef }: AboutProps) {
         <h2 className="text-3xl font-bold mb-8">About Our Center</h2>
         <div className="flex flex-col md:flex-row gap-8">
           <div className="md:w-1/2">
-            <Image
-              alt="Scientist working in a lab"
-              className="rounded-lg object-cover w-full h-auto"
-              src="/images/about.jpg"
-              width={600}
-              height={400}
-              style={{ objectFit: "cover" }}
-            />
+            {/* Video Player with Controls */}
+            <VideoPlayer />
           </div>
           <div className="md:w-1/2">
             <h3 className="text-2xl font-semibold mb-4 text-teal-600">
@@ -63,5 +58,86 @@ export default function About({ aboutRef }: AboutProps) {
         </div>
       </div>
     </section>
+  );
+}
+
+function VideoPlayer() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [showControls, setShowControls] = useState(false);
+
+  const handlePlayPause = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.paused) {
+      video.play();
+      setIsPlaying(true);
+    } else {
+      video.pause();
+      setIsPlaying(false);
+    }
+  };
+
+  const handleFullscreen = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    if (video.requestFullscreen) {
+      video.requestFullscreen();
+    } else if ((video as any).webkitRequestFullscreen) {
+      (video as any).webkitRequestFullscreen();
+    } else if ((video as any).msRequestFullscreen) {
+      (video as any).msRequestFullscreen();
+    }
+  };
+
+  // Show controls on hover/focus/touch
+  const handleShowControls = () => setShowControls(true);
+  const handleHideControls = () => setShowControls(false);
+
+  return (
+    <div
+      className="relative w-full"
+      onMouseEnter={handleShowControls}
+      onMouseLeave={handleHideControls}
+      onFocus={handleShowControls}
+      onBlur={handleHideControls}
+      onTouchStart={handleShowControls}
+      tabIndex={0}
+      aria-label="Video player section"
+    >
+      <video
+        ref={videoRef}
+        className="rounded-lg object-cover w-full h-auto"
+        src="/about.mp4"
+        width={600}
+        height={400}
+        style={{ objectFit: "cover" }}
+        autoPlay
+        loop
+        muted
+        playsInline
+        tabIndex={-1}
+        aria-label="About video"
+      />
+      <div
+        className={`absolute left-0 bottom-0 w-full flex justify-center transition-opacity duration-300 ${showControls ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+        style={{ background: "rgba(30, 41, 59, 0.6)", borderBottomLeftRadius: '0.5rem', borderBottomRightRadius: '0.5rem' }}
+      >
+        <button
+          onClick={handlePlayPause}
+          aria-label={isPlaying ? "Pause video" : "Play video"}
+          className="m-2 p-2 rounded bg-teal-600 text-white hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-400 flex items-center justify-center"
+        >
+          {isPlaying ? <FaPause size={22} /> : <FaPlay size={22} />}
+        </button>
+        <button
+          onClick={handleFullscreen}
+          aria-label="Fullscreen video"
+          className="m-2 p-2 rounded bg-slate-700 text-white hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-slate-400 flex items-center justify-center"
+        >
+          <FaExpand size={22} />
+        </button>
+      </div>
+    </div>
   );
 }
