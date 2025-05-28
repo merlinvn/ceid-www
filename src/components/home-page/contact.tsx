@@ -60,7 +60,7 @@ export default function Contact({ contactRef }: ContactProps) {
         setError(data.message || "Failed to send message.");
         resetCaptcha();
       }
-    } catch (err) {
+    } catch {
       setError("Failed to send message. Please try again later.");
       resetCaptcha();
     }

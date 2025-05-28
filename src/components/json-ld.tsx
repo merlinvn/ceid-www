@@ -54,12 +54,16 @@ export function WebsiteJsonLd() {
     "query-input": "required name=search_term_string"
   };
 
-  const websiteData: WithContext<WebSite> = {
+  // Define a custom type that extends WebSite to include potentialAction
+  type ExtendedWebSite = WebSite & {
+    potentialAction?: ExtendedSearchAction;
+  };
+
+  const websiteData: WithContext<ExtendedWebSite> = {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Center for Computational Epidemiology and Infectious Diseases",
     url: "https://ceid.center",
-    // @ts-ignore - Schema.org valid property not fully supported in schema-dts
     potentialAction: searchAction
   };
 
